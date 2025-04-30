@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serpihan Rasa - Kumpulan Antologi Puisi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&family=Dancing+Script:wght@700&family=Cormorant+Garamond:wght@500;600&display=swap');
+        
+        :root {
+            --primary: #6d4c41;
+            --secondary: #8d6e63;
+            --light: #d7ccc8;
+            --dark: #3e2723;
+            --accent: #a1887f;
+            --gold: #d4af37;
+            --paper: #f8f3e6;
+            --ink: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: #f5f5f5;
+            color: var(--dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .floating-leaves {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .leaf {
+            position: absolute;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23d7ccc8"><path d="M17 8C8 10 5.9 16.8 3 20c1.9 1.1 5.7-1.2 8-3 3.5 2.1 6.1 3.5 9 1-3-5.5.5-12-3-10z"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.6;
+            animation: falling linear infinite;
+        }
+        
+        @keyframes falling {
+            0% {
+                transform: translate(0, -10vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translate(calc(var(--random-x) * 10vw), 100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .header-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(to right, var(--light), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInDown 1.5s ease-out;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1.5s ease-out 0.3s both;
+        }
+        
+        .author {
+            font-size: 1.5rem;
+            letter-spacing: 5px;
+            margin-top: 3rem;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            animation: fadeIn 2s ease-out 0.6s both;
+        }
+        
+        .author:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 2;
+            transition: all 0.3s;
+        }
+        
+        .scroll-down:hover {
+            color: var(--gold);
+            transform: translateX(-50%) scale(1.2);
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            display: inline-block;
+            padding: 0 20px;
+            background-color: #f5f5f5;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
+            z-index: 0;
+        }
+        
+        /* Kata Pengantar */
+        .preface {
+            background-color: var(--paper);
+            padding: 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            border-top: 3px solid var(--gold);
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .preface.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .preface-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .preface-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+        
+        .preface-content {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: var(--ink);
+            text-align: justify;
+        }
+        .preface-content p.indent {
+            text-indent: 2cm;
+            margin-bottom: 1em;
+            text-align: justify;
+        }
+        .penulis-container {
+        text-align: right;
+        margin-top: 40px;
+        }
+
+        .penulis {
+            display: inline-block;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 2;
+            color: var(--ink);
+            padding: 0 20px;
+            padding-top: 15px;
+        }
+        .preface-signature {
+            margin-top: 40px;
+            text-align: right;
+            font-style: italic;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        /* Puisi */
+        .poem {
+            background-color: var(--paper);
+            padding: 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            background-image: url('https://www.transparenttextures.com/patterns/rice-paper.png');
+            border-left: 5px solid var(--gold);
+        }
+        
+        .poem.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .poem:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .poem-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+            transition: all 0.3s;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .poem:hover .poem-title {
+            color: var(--dark);
+        }
+        
+        .poem-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+            transition: all 0.3s;
+        }
+        
+        .poem:hover .poem-title:after {
+            width: 150px;
+            background-color: var(--gold);
+        }
+        
+        .poem-content {
+            font-size: 1.3rem;
+            line-height: 2.2;
+            white-space: pre-line;
+            margin: 40px 0;
+            font-style: italic;
+            position: relative;
+            text-align: center;
+            color: var(--ink);
+            font-weight: 500;
+        }
+        .poem-author {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        .poem-content:before,
+        .poem-content:after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--accent);
+            opacity: 0.3;
+            position: absolute;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .poem-content:before {
+            top: -20px;
+            left: -10px;
+        }
+        
+        .poem-content:after {
+            bottom: -40px;
+            right: -10px;
+        }
+        
+        .poem-number {
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+        }
+        
+        .poem:hover .poem-number {
+            background-color: var(--gold);
+            transform: scale(1.1);
+        }
+        
+        .poem-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            font-size: 0.95rem;
+            color: var(--secondary);
+            font-style: italic;
+            border-top: 1px dashed var(--accent);
+            padding-top: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .poem-date {
+            text-align: left;
+        }
+        
+        .poem-location {
+            text-align: right;
+        }
+        
+        /* Dekorasi Puisi */
+        .poem-decoration {
+            position: absolute;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .decoration-1 {
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            transform: rotate(-15deg);
+            color: var(--primary);
+        }
+        
+        .decoration-2 {
+            bottom: 20px;
+            right: 20px;
+            font-size: 5rem;
+            transform: rotate(15deg);
+            color: var(--primary);
+        }
+        
+        /* Floating Button */
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .floating-btn.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .floating-btn:hover {
+            background-color: var(--gold);
+            transform: scale(1.1) translateY(-5px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 50px;
+            position: relative;
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        footer h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--light), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        footer p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .social-icons {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.8rem;
+            transition: all 0.3s;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-icons a:hover {
+            color: var(--gold);
+            transform: translateY(-5px) scale(1.1);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .author {
+                font-size: 1rem;
+            }
+            
+            .preface {
+                padding: 30px 20px;
+            }
+            
+            .preface-title {
+                font-size: 1.8rem;
+            }
+            
+            .poem {
+                padding: 30px 20px;
+            }
+            
+            .poem-title {
+                font-size: 1.5rem;
+            }
+            
+            .poem-content {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            footer h3 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="floating-leaves" id="leaves-container"></div>
+        <div class="header-content">
+            <h1 class="animate__animated animate__fadeInDown">Serpihan Rasa</h1>
+            <h2 class="animate__animated animate__fadeInUp">Kumpulan Antologi Puisi</h2>
+            <div class="author animate__animated animate__fadeIn">SPEBASKA</div>
+        </div>
+        <div class="scroll-down" onclick="document.querySelector('.container').scrollIntoView({ behavior: 'smooth' })">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </header>
+    
+    <main class="container">
+        <!-- Kata Pengantar -->
+        <section class="preface" id="preface">
+            <h2 class="preface-title">Kata Pengantar</h2>
+            <div class="preface-content">
+                <p class="indent">Alhamdulilah, puji syukur peneliti panjatkan kepada Allah SWT, karena atas izin dan kuasa-Nya dapat menyelesaikan penelitian dengan tepat waktu. Penelitian skripsi ini berjudul "Penerapan Model Pembelajaran ARIAS (Assurance, Relevance, Interest, Assessment, Satisfaction) Pada Bab Puisi Kelas VIII Di SMP Batik Surakarta Dalam Implementasi Kurikulum Merdeka (Studi Kasus)", yang mana menghasilkan produk salah satunya berupa keterampilan menulis puisi.</p>
+                
+                <p class="indent">Puisi yang telah tercipta kemudian dikumpulkan dan dijadikan website antologi puisi sebagai bentuk apresiasi terhadap kreativitas siswa/siswi dalam bidang sastra. Tujuan adanya website ini agar puisi yang telah dibuat dapat diakses khalayak dan agar nantinya dapat menjadi rekam jejak digital yang baik bagi diri siswa/siswi.</p>
+                
+                <p class="indent">Website antologi puisi bukan hanya sekadar kumpulan karya, tetapi sekaligus menggambarkan perkembangan kemampuan berbahasa siswa/siswi dari segi daya imajinasi dan ekspresi penuangan diksi. Puisi yang dihasilkan sangat beragam, setiap karya menunjukkan keberagaman ide dan cara pandang siswa/siswi terhadap dunia sekitar.</p>
+                
+                <p class="indent">Dengan demikian, website antologi puisi ini dapat menjadi dokumentasi penting bagi perkembangan sastra di kalangan siswa/siswi SMP Batik Surakarta. Semoga hasil dari antologi puisi ini dapat memberikan manfaat dan kontribusi positif bagi perekembangan siswa/siswi, menjadi sumber inspirasi bagi mereka untuk terus berkarya melalui karya sastra lainnya, serta semoga dapat menjadi ajang untuk terus menumbuhkan budaya literasi di lingkungan pendidikan.</p>
+                
+                <p class="indent">Terima kasih atas perhatian, kerja sama, dan kesempatan yang telah diberikan oleh pihak SMP Batik Surakarta, khususnya kepada Bu Sari Martanti, M.Pd, selaku guru Bahasa Indonesia dan terima kasih kepada seluruh siswa/siswi atas karya yang telah diciptakan.</p>
+                
+                <p class="indent">Selamat menikmati puisi setiap larik, setiap baitnya, dan temukan keindahan yang mungkin tersembunyi di antara jeda dan diamnya kata..</p>
+            </div>
+            <div class="penulis-container">
+                <div class="penulis">
+                    <p>Surakarta, 29 April 2025</p>
+                    <p>Peneliti</p>
+                    <br>
+                    <p>Afifah Heninda Mufti</p>
+                </div>
+            </div>
+            <div class="preface-signature">SPEBASKA</div>
+        </section>
+        
+        <!-- Daftar Puisi -->
+        <div class="section-title">
+            <h2>Karya Puisi</h2>
+        </div>
+        
+        <article class="poem">
+            <div class="poem-number">1</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-feather-alt"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-feather-alt"></i></div>
+            <h3 class="poem-title">Sepasang Lantana</h3>
+            <div class="poem-author">Karya Sari Martanti, M.Pd.</div>
+            <p class="poem-content">
+                Ia adalah sepasang Lantana yang menari penuh gusar di tepian pantai
+                Kisahnya sengaja dilahirkan oleh ombak-ombak kecil yang bergemericik penuh canda
+                Gusarnya jua telah usai ia tanggalkan
+                Perihal lika-liku kehidupan yang datang begitu mengejutkan
+                Kepasrahannya telah berhasil ia rayakan penuh suka cita
+                Dengan segala pertanyaan yang dibiarkan berkelindan, datang dan pergi
+                Ombak-ombak menggulung dan menyisakan keraguan tanpa ampun
+                Hingga mereka hanya ditemani bayang-bayang mereka sendiri
+                Sedang tanya yang tak terhitung itu, tersisa begitu melekat
+                Bisakah kita mengulang waktu dan menjaring temu?
+                Batinnya bergema di sela-sela dercitan perahu yang mulai singgah ke tepian
+                Sayang, Lantana terundung pupus
+                Ia berpuisi lantang
+                Biarkan segala tanya terbawa ombak dan menguap di tengah samudra
+                Sebab aku tak mampu janjikan jawaban itu menjadi milik kita
+                
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 15 Januari 2023</div>
+                <div class="poem-location">Bandung</div>
+            </div>
+        </article>
+        
+        <article class="poem">
+            <div class="poem-number">2</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-leaf"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-leaf"></i></div>
+            <h3 class="poem-title">Ketidakadilan Yang Tak Kunjung Usai</h3>
+            <div class="poem-author">Karya Afifah Heninda Mufti</div>
+            <p class="poem-content">
+                Negeri ini terlalu luas untuk disinggahi 
+                Dari riuhnya sudut kota
+                Sampai pada pedalaman suku bangsa 
+                Inilah indonesia
+                Luasnya tak memungkiri kekuasaan yang ada
+                Ketika dua sisi saling berkebalikan 
+                Bagaikan roda yang berputar dalam kehidupan
+                Entah mengapa, selalu muncul dalam benak pikiran
+                Menurutmu bagaimana situasi negeri ini?
+                Adil penuh kesejahteraan? 
+                Atau porak-poranda dalam balutan sandiwara perpolitikan
+                Nampaknya mulusnya perkotaan, menjadi ajang saling beradu jabatan
+                Huru-hara sengit atas wewenang kebijakan yang tak seimbang
+                Seutas janji aksara dalam kiasan kata 
+                Termaktub makna yang sungguh luar biasa 
+                Terkesan manis, namun berujung dramatis
+                Adanya hitam di atas putih hanyalah formalitas semata
+                Riuhnyaa sandiwara tak menutupi kesengsaraan yang ada
+                Pembeda keduanya terlihat jelas dalam kehidupan nyata
+                Jayanya tanah kota, penuh dengan euforia
+                Sejenak melupa pada situasi tanah pedalaman yang melegenda
+                Dari ujung pedalaman bumi pertiwi
+                Dengan penuh harapan, para pejuang melewatinya dengan ketabahan
+                Memikul beban dalam ayunan langkah pengabdian
+                Melewati tanah basah penuh ketidakadilan
+                Mungkin inilah fakta yang tak bisa disembunyikan
+                Fenomena diskriminasi yang masih mendominasi
+                Menjadikan saksi kunci sebuatı janji yang berujung ilusi 
+                Sungguh sangat miris situasi negeri ini
+                Leluasanya sang penguasa yang tak kunjung berkesudahan
+                Wahai para pemimpin negara!
+                Dimanakah letak keadilan berada?
+                Keadikan yang seharusnya ditegakkan mungkin hanya sebatas pemanis buatan
+                Kiranya, seutas harapan warga pedalaman untuk turut merasakan keadilan
+                Suatu kebijakan yang seimbang, memberikan kedamaian
+                Semoga dengan adanya aksi nyata sang penguasa, 
+                Menjadikan Indonesia semakin berjaya
+                Jaya dalam keadaan dan keadilan
+                
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+        
+        <article class="poem">
+            <div class="poem-number">3</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-moon"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-moon"></i></div>
+            <h3 class="poem-title">Prasangka Berujung Nestapa</h3>
+            <div class="poem-author">Karya Afifah Heninda Mufti</div>
+            <p class="poem-content">
+                Saat mulai menabur kepercayaan, seperti menanam benih 
+                Di tanah yang mungkin kami kira subur, penuh kedamaian
+                Engkau datang, turut menjadi angin yang menyejukkan
+                Namun teryata, angin itu semakin lama menjelma menjadi badai yang menghancurkan 
+                Kebaikan yang pernah terlukis, kini sirna tak bermakna 
+                Dari setiap bukti nyata yang terlihat, sungguh menggetarkan jiwa
+                Menusuk, menghancurkan segala yang telah terbangun
+                Awal mula prasangka yang muncul, menumbuhkan goresan luka 
+                Mengubur sejenak damai, yang menyisakan pelik huru hara
+                Kami tak menyangka, jika berakhirnya prasangka, kian menjadi duka 
+                Tutur kata dan nasihat lembutmu itu, dulu kami anggap sebagai pelita 
+                Menerangi, memberi arah, dan menunjukkan mana yang benar dan yang salah
+                Namun kini semua lenyap meninggalkan jejak kegelapan, penuh tanya
+                Lubuk hati dan pikiran kami selalu terbayang-bayang
+                “Mengapa engkau menjadi badai yang mengancam?”
+                Saat semua telah terungkap, membuat mulut kami lebih baik terikat 
+                Rasa kecewa yang muncul, bukan karena tiada sebab 
+                Goresan luka, begitu sangat membekas abadi dalam jiwa 
+                Dan sialnya kini, kami turut tenggelam dalam bayang masalahmu!
+                Kami mencoba diam, seolah tak mengerti apa yang sedang terjadi
+                Sebenarnya, aku pun bingung, apakah aku salah dalam memilah untuk memilih?
+                Apakah aku harus tetap ada atau pergi dalam lingkaran ini? 
+                Tapi nampaknya semua tidak semudah kembali saat menyatukan tangan
+                Air mata yang keluar, bukan karena marah atau pun benci 
+                Tapi karena, hati ini terlalu dini dan terkejut atas ketidakterdugaan yang terjadi 
+                Dulu tawa dan ceria selalu beriringan menghiasi benak kami 
+                Namun kini, salah satu darinya mendadak berubah menjadi badai
+                Badai yang benar-benar mengancam memporak-porandakan reputasi
+                
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+        
+        <article class="poem">
+            <div class="poem-number">4</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-cloud"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-cloud"></i></div>
+            <h3 class="poem-title">Sang Kudeta</h3>
+            <div class="poem-author">Karya Ganish Alifania Yhan</div>
+            <p class="poem-content">
+                Kau penghancur negeri ini
+                Di mana komitmen kalian?
+                Kalian tlah dibutakan oleh harta
+                Bukankah kalian suara kami?
+                Sang kudeta penghancur bangsa
+                Menjatuhkan sang penguasa 32 tahun yang berjasa
+                Jeritan serta serangan yang bergema di mana-mana
+                Hingga kini pun masih terdengar
+                Tunggu saja ajalmu tiba apabila Petrus tlah dibangkitkan kembali
+                Mengincar orang-orang yang merusak Zamrud Khatulistiwa kita
+                Kami tak akan tinggal diam!!
+                Kan kutunggu berita kematianmu di media masa
+                Dan saat itulah kami bersorak ria dengan berlinang air mata bahagia
+                
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+        
+        <article class="poem">
+            <div class="poem-number">5</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-star"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-star"></i></div>
+            <h3 class="poem-title">Harapan</h3>
+            <div class="poem-author">Karya Ganish Alifania Yhan</div>
+            <p class="poem-content">
+                Dunia yang terlalu sunyi
+                Menuntut kita untuk mandiri
+                Mereka yang menaruh harapan pada kita
+                Ada kepercayaan yang harus kita jaga
+                Seorang yang berjuang sendiri tidak ada yang menemani
+                Menjadi bagian anak yang harus mengusahakan mimpinya sendiri
+                Bohong rasanya kalau tidak iri dengan mereka
+                Yang masa depannya sudah tersusun rapi oleh orang tuanya
+                Tanpa orang dalam, tanpa masa jaya orang tua, tanpa relasi saudara
+                Aku mencoba memberanikan diri untuk mengejar mimpi
+                Meski sungguh sulit, tapi aku percaya Tuhan memilih jalur langit!
+                
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+        
+        <article class="poem">
+            <div class="poem-number">6</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Pendidikan</h3>
+            <div class="poem-author">Karya Rafa Ananda Raditya</div>
+            <p class="poem-content">
+                Pendidikan bagai mentari pagi
+                Di bangun dengan bertekad dan semen harapan
+                Anak-anak bangsa adalah benih emas
+                Yang kelak tumbuh menjadi pohon-pohon cerdas
+                Wahai pendidikan, engkau bukan sekadar pelajaran
+                Engkau adalah cahaya dalam setiap perjuangan
+                Tanpamu negeri ini hanyalah lautan kosong
+                Ombak besar tapi kehilangan arah
+                Buku-buku bicara dengan suara nurani
+                Pena menari di atas kertas bak pelukis ilahi
+                Di balik papan tulis yang bisu
+                Guru menjadi pelita yang tak pernah redup dan kelu
+                
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">7</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Untuk Kalian Yang Pernah Ada</h3>
+            <div class="poem-author">Karya Ben Kitaro Sulaiman</div>
+            <p class="poem-content">
+                Terima kasih untuk tawa yang pernah kita bagi
+                Untuk pelukan di hari sepi
+                Dan diam terasa berarti
+                Kalian ada saat aku jatuh
+                Tak banyak kata
+                Tapi cukup membuatku utuh
+                Masa lalu bukan sekadar waktu
+                Ia adalah kenangan yang hangat
+                Meski kini semua berlalu
+                Jejak masih tetap dekat
+                Tak semua hal bisa kembali
+                Tapi rasa syukur ini abadi
+                Untuk kalian terima kasih
+                Karena pernah menjadi bagian dari cerita ini
+                
+                
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">8</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Teriakan Langit Senja</h3>
+            <div class="poem-author">Karya Dimas Adyatama Santoso</div>
+            <p class="poem-content">
+                Langit meraung seperti luka yang menganga
+                Menumpahkan cahaya sekeras amarah jiwa
+                Mentari tenggelam tak perlahan
+                Tapi seperti di lempar paksa oleh waktu yang murka
+                Aku menatap senja dengan mata terbakar
+                Seolah dunia hancur di ujung pandang
+                Angin mencabik pikiranku
+                Seperti teriakan yang tak sanggup di simpan
+                Di bawah langit yang memerah darah
+                Hatiku terhempas seribu kali dalam diam
+                Dan malam datang bukan membawa tenang
+                Tapi mendekapku dengan gelap yang kejam
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">9</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Perpisahan</h3>
+            <div class="poem-author">Karya Fla Chalya Astutiningtias</div>
+            <p class="poem-content">
+                Mentari tenggelam di ufuk barat
+Membawa pergi bayanganmu yang sunyi
+Jejak langkahmu sinar di jalan
+Meninggalkan hatiku yang hampa dan sepi
+Kenangan indah terukir dalam jiwa
+Namun kini tinggal kenangan belaka
+Perpisahan ini bagai duri yang menusuk
+Hingga air mata tak mampu lagi ku cegah
+Semoga kau bahagia ditempat yang baru
+Walau hatiku terluka dan pilu
+Doa terbaik selalu menyertaimu
+Sampai kita bertemu kembali suatu hari nanti
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">10</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Hujan</h3>
+            <div class="poem-author">Karya Fla Chalya Astutiningtias</div>
+            <p class="poem-content">
+                Hujan turun perlahan seperti waktu yang terus berjalan
+Matahari pun tak tampak karena awan gelap meneteskan air ke bumi
+Terdengarlah suara hujan
+Setiap tetesan membuka cerita
+Kau menemani di saat sunyi
+Kau membuat aku melamun
+Mendengar merdunya bunyi rintik hujan
+Yang membuatku tenang
+Setiap tetesnya menambah cerita
+Tentang kabar yang pernah ada
+Tentang rindu yang tak sempat tersampaikan pada senja
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">11</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Rindu Hujan</h3>
+            <div class="poem-author">Karya Rexza Budi Ananta</div>
+            <p class="poem-content">
+                Angin berbisik di jalan pulang
+Membawa harum ke tanah pulang
+Aku berdiam diri, merenung di belakang jendela
+Langit kelabu bercerita
+Tentang rindu yang tidak sempat di sapa
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">12</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Luruh Namun Bertumbuh</h3>
+            <div class="poem-author">Karya Zahy Algafari</div>
+            <p class="poem-content">
+                Langkah tak senantiasa lurus
+Ada kalanya tersesat terlebih dahulu
+Agar arah menjadi terang
+Waktu bukanlah lawan
+Melainkan cerminan yang menampakkan diri kita saat segala topeng ditinggalkan
+Bahkan pohon pernah meranggas sebelum kembali menghijau
+Maka mengapa kita takut akan kekosongan yang sementara?
+Sering kali diam dianggap lemah
+Padahal diam bisa menjadi bahasa yang paling jujur dari semesta
+Hidup bukan semata-mata tentang cepat mencapai tujuan
+Melainkan tentang bagaimana tetap menjadi diri sendiri sepanjang perjalanan
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">13</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Tugas MTK</h3>
+            <div class="poem-author">Karya Fadhil Deryestian Putro Wibowo</div>
+            <p class="poem-content">
+                Hari ini aku berjalan menuju sekolah
+Matahari tersenyum cerah di pagi hari
+Aku memasuki kelas, eh eh eh?
+Teryata hari ini ada jam mtk
+Aduh aduh aduh, guru mtk ini adalah guru bertangan besi
+Guru itu memberi pr yang sangat sulit
+Aku berjalan pulang, tetapi hujan turun
+Sangat deras, hujan itu menari-nari di tubuhku
+Bajuku sangat basah
+Aku langsung menuju ke kamar mandi
+Ah ah ah, aku sangat lelah 
+Aku langsung mengerjakan tugas itu
+Agar bisa bersantai nanti
+Berjalan berjalan berjalan, aku berjalan
+Di atas lantai, lantai itu bergetar seperti magma yang ingin meletus
+Dikejar-kejar waktu, ah akhirnya
+Selesai keringat mengucur di tubuhku
+Bulan menjadi saksi, betapa susahnya tugas itu
+
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">14</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Nyanyian Alam Yang Abadi</h3>
+            <div class="poem-author">Karya Gavriella Mustika Wibawa</div>
+            <p class="poem-content">
+                Matahari tersenyum dari balik awan
+Menyentuh bumi dengan pelukan hangat nan dalam
+Badai berlari tanpa lelah menari
+Membelai pepohonan yang sedang bersyair siang hari ini
+Gunung berdiri bagai raksasa bijak
+Menyimpan banyak rahasia dalam diam
+Lautan berteriak memanggil langit
+Menumpahkan rindunya dalam ombak yang tak pernah surut sedikit
+Burung-burung bersenandung lagu syahdu
+Mengirim pesan dari langit untuk semesta yang rindu
+Langit menangis saat daun gugur
+Seolah tak rela keindahan alam berakhir hancur
+Oh alam engkau bukan sekadar bentang hijau
+Engkau adalah puisi yang ditulis Tuhan dengan tinta
+Pelangi yang tak pernah pudar
+Walau beribu-ribu tahun yang lalu
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">15</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Senja Yang Berbisik</h3>
+            <div class="poem-author">Karya Azzarine Justicia</div>
+            <p class="poem-content">
+                Di bawah langit senja yang merona
+Matahari berbisik lembut di atas awan
+Bagaikan raja yang runtuh
+Meninggalkan tahta sinar hangat
+Awan menari penari di panggung
+Angin berdesir dedaunan berdesir
+Seperti kasih sayang seorang ibu
+Menyampaikan pesan dari jauh
+Bunga-bunga mekar tersenyum ceria
+Bintang-bintang bersinar menatap kita
+Seperti mata-mata penuh harapan
+Menjaga mimpi yang takkan sirna
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">16</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Lampu Yang Bersinar</h3>
+            <div class="poem-author">Karya Ardelia Safira Ramadani</div>
+            <p class="poem-content">
+                Di ujung lorong yang hampir padam
+Terlihat lampu yang bersinar lembut
+Seperti janji pagi yang menunggu kelahiran
+Menyapu kelam dengan nada harap
+Setiap detik sinarnya menari
+Melukis bayang disudut dinding
+Membangkitkan nyali yang meragu
+Menghidupkan mimpi yang tertidur panjang
+Lampu yang bersinar itu bicara tanpa kata
+Mengundang hati tuk kembali percaya
+Bahwa dibalik gelap paling pekat
+Selalu ada cahaya untuk kita jelajah
+Kala langkahku tersesat di kegelapan
+Kupejam mata, kupetik secercah sinarnya
+Dan kutemukan jalan pulang
+Berkat lampu yang bersinar abadi
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">17</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Tanpa Kata</h3>
+            <div class="poem-author">Karya Danish Zaim Munawar</div>
+            <p class="poem-content">
+                Aku mencintaimu tanpa suara
+Seperti embun yang jatuh di pagi buta
+Hadir tanpa diminta, menetap tanpa terasa
+Kita adalah rahasia yang dipahami semesta
+Dua hati yang saling membaca
+Tanpa perlu aksara atau tanda 
+Jika cinta adalah arah, kaulah tujuannya
+Jika waktu adalah perjalanan, kaulah akhirnya
+Tempat semua pulang tanpa ragu
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">18</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Kau Adalah Matahariku</h3>
+            <div class="poem-author">Karya Muhammad Nabil Saputra</div>
+            <p class="poem-content">
+                Kau adalah matahariku yang tak pernah padam 
+Hangatmu membakar seluruh relung malam
+Rinduku membumbum setinggi lagit ketujuh
+Bergetar seperti badai dalam peluk yang rapuh
+Tanpamu aku hanyalah bayangan
+Hidup tanpa warna seperti pelangi yang kehilangan hujan
+Detik tanpamu panjangnya seperti bertahun-tahun
+Namun sekejap bersamamu sangat manis dari beribu tahun
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">19</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Kasih Tak Terhingga</h3>
+            <div class="poem-author">Karya Joan Krisna Tanaya</div>
+            <p class="poem-content">
+                Di hati yang penuh kasih sayang
+Terukir nama yang tak terlupakan 
+Orang tua, tauladan yang mulia
+Memberi cinta tanpa batas
+Jejak langkahmu di setiap sudut rumah ini penuh kenangan
+Wajahmu yang penuh keriput menyiratkan kisah perjalanan panjang
+Berjuang tanpa kenal lelah hanya untuk kebahagiaan kami
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">20</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Ayahku</h3>
+            <div class="poem-author">Karya Lail Hizbullah Al Farobi</div>
+            <p class="poem-content">
+                Ayah, jika aku mempunyai keberanian
+Ingin rasanya aku memberi ucapan terima kasih 
+Karena telah merawatku menjadi menjadi anak yang hebat
+Serta menjadikan diriku setangguh sekarang
+Ayah, jika tak ada kau, mungkin aku sudah berkarat
+Bagai sebuah mainan yang kau berikan kala itu
+Usang, berdebu, dan tak terawat
+Ayah, terima kasih kau telah membiarkanku tumbuh dengan caraku sendiri
+Ayah, sekarang bahuku lebih tinggi dari pada bahumu
+Tapi, belum tentu bahuku sekuat bahumu
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">21</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Kusuma Indah </h3>
+            <div class="poem-author">Karya Lembayoeng Kencana</div>
+            <p class="poem-content">
+                Di taman yang indah 
+Bunga-bunga mekar seperti padma yang cantik
+Dengan warna cerah, kusuma yang harum
+Menebar aroma di sepanjang jalan
+Keindahan alam terhampar
+Bunga malika yang putih, seperti salju yang jatuh
+Bunga jaba yang merah, seperti api yang menyala
+Puspha yang beragam membuat kita kagum dengan keindahan alam
+Keindahan alam hati kita menjadi bahagia
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">22</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Tentang Ibu</h3>
+            <div class="poem-author">Karya Fabrian Sudjono</div>
+            <p class="poem-content">
+                Tentang ibu, baik ada yang lebih tulus
+Cinta yang diberikan tanpa syarat
+Segala lelahnya disimpan dalam bisa
+Hanya senyum yang selalu menyapa hangat
+Tentang ibu, selalu ada doa di malam
+Mengiringi tidur dengan penuh harap
+Tak pernah lelah meski dunia menuntut
+Kasihnya abadi tanpa harus yang terlihat
+Terima kasih ibu, segala pengorbanan tak terucap
+Tangan yang mengenggam dalam kelembutan
+Hari yang selalu setia menjaga langkah 
+Ibu, engkaulah dunia dalam sepi dan kebahagiaan
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">23</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Jiwa Di Tubuh Alam</h3>
+            <div class="poem-author">Karya Rahardian Kafeel Hidayat</div>
+            <p class="poem-content">
+                Bumi bernapas dalam sunyi yang panjang
+                Hembusannya mengguncang lautan dan pandang 
+                Langit membentang tak tertepi
+                Seakan hendak memeluk dunia sepenuh hati
+                Gunung tinggi di atas tanah
+                Berkabut putih dan cerah 
+                Udara sejuk di pagi hari
+                Sawah hijau nan luas
+                Air di danau sangat sejuk
+                Embun pagi jatuh di daun
+                Air terjun sangat dingin
+                Dan embun sore sangat sejuk
+                Alam bukan benda, ia perasa
+                Menyimpan cinta, luka, dan kecewa
+                Tapi tetap memberi
+                Meski sering di lupa
+                Setia memeluk kita
+                Tanpa minta apa-apa
+                
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">24</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Ibu</h3>
+            <div class="poem-author">Karya Radjasyah Nendya A</div>
+            <p class="poem-content">
+                Ibu kau adalah sinar matahari yang menyinariku sewaktu sedih
+Kau bagaikan bulan di mataku
+Ibu kau juga yang telah mendewasakanku
+Kau juga adalah jiwa yang menghidupiku di waktu kecil
+Di saat aku memiliki masalah, kau yang membantuku
+Kau adalah segalanya bagiku ibu
+Kau bisa menjadi teman dan kau juga bisa menjadi ibu
+Kau adalah garda terdepan jika aku memiliki masalah
+
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">25</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Lautan Yang Luas</h3>
+            <div class="poem-author">Karya Aliya Nabila Zakira</div>
+            <p class="poem-content">
+                Lautan luas, biru dan dalam
+Menyimpan rahasia yang tak terkatakan
+Gelombang ombak riak hati
+Mengajak kita utuk mengeksplorasi 
+Pasir putih yang lembut
+Mengundang kita untuk beristirahat
+Suara ombak melodi alam
+Menghibur hati yang sedang sedih
+Kapal berlayar mengarungi lautan
+Mengikuti arus, mengikuti angin
+Menjelajahi keindahan alam
+Mengabadikan kenangan yang tak terlupakan
+
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">26</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Teman Dekatku</h3>
+            <div class="poem-author">Karya Ardan Zaki Syahreza</div>
+            <p class="poem-content">
+                Kamu adalah cahaya di tengah kegelapan
+Sahabat yang selalu ada di sampingku
+Dalam suka maupun duka
+Rasa bahagia dan kesedihan, kita rasakan bersama
+Kita berbagi cerita dan kenangan
+Menghabiskan waktu bersama tanpa cela
+Waktu terus berjalan, tapi kenangannya tidak pergi
+Mereka berdiam di hati, dan tak akan pernah pergi
+Kamu adalah bagian dari hidupku
+Sahabat yang tak tergantikan
+Saya beruntung memiliki kamu
+Teman dekatku, sahabat sejatiku
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">27</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Desa Kecil</h3>
+            <div class="poem-author">Karya Adlan Zaki Syahreza</div>
+            <p class="poem-content">
+                Di lembah yang hijau
+Di mana matahari bersinar
+Terhampar sawah yang luas, seluas alam semesta
+Desa kecil yang tenang
+Dengan kehidupan yang sederhana
+Dan rakyat yang damai
+Suara angin bergemuruh
+Dan air sungai yang jernih mengalir ke sawah
+Mengairi padi yang hijau
+Di sore hari, ketika matahari terbenam
+Dengan angin yang berhembus kencang
+Pohon-pohon pun nampak melambai-lambai
+Dan burung-burung berkicau
+Di malam hari, ketika bulan bersinar terang
+Dengan suasana yang sunyi
+Sungai yang jernih dengan air yang mengalir
+Mengalir ke dalam mimpi
+Dengan irama yang lembut
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">28</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Hujan Yang Membasuh</h3>
+            <div class="poem-author">Karya Dinara Azkia Rossy Fauzi</div>
+            <p class="poem-content">
+                Hujan turun dari langit biru
+Membasuh bumi yang kering dan gersang
+Tetesan demi tetesan air yang jernih
+Penghidupan kembali tanah yang tandus
+Bumi yang kering
+Sekarang menjadi hijau dan subur
+Tumbuhan yang layu dan kering
+Sekarang menjadi segar dan hidup
+Hujan yang membasuh
+Membawa kehidupan ke bumi yang tandus
+Hujan yang turun, hujan yang deras
+Membasuh segala yang kotor dan busuk
+Bumi yang bersih, bumi yang hijau
+Sekarang menjadi tempat yang indah
+Hujan yang membasuh, hujan yang jernih
+Membawa kehidupan ke bumi yang gersang
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">29</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Jiwa Yang Beku</h3>
+            <div class="poem-author">Karya Hifzhi AlfIansyah Makarim</div>
+            <p class="poem-content">
+                Sedingin hembusan kristal salju
+Menyapu hati yang hangat tanpa ragu
+Bagai membersihkan rumah yang kumuh
+Lalu pergi untuk berlabuh
+Seakan meninggalkan jejak langkah tanpa arah
+Membisu di antara gundah
+Bagai bayang yang retak di tengah cahaya
+Hanya dingin yang setia tinggal
+Menyelimuti ruang yang tak lagi mengenal
+Hangatnya pelukan atau sapa
+Tersisa sunyi dan luka yang kekal
+Kini jiwa pun diam membatu
+Tak lagi mengharapkan waktu
+Malam menua dalam rindu
+Menanti es itu luluh
+Entah hingga kapan waktu
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">30</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Kawanku</h3>
+            <div class="poem-author">Karya Tsani Bilal Reederika</div>
+            <p class="poem-content">
+                Kita sudah lama berteman
+Banyak hal kita lalui bersama
+Mulai dari bermain bola, sampai lupa waktu
+Berbagi makanan selalu dan juga berbagi uang saku
+Tak lupa kawan, kita selalu saling membantu
+Jika salah satu dari kita sedang ada masalah
+Kita juga sering berbagi cerita ketika bosan
+Oh kawanku, kau sudah kuanggap bagai minyak dan air
+Kawan, kau selalu ada jika aku membutuhkanmu
+Kawan, kau akan selalu menjadi teman terbaikku
+Kawan, jadilah teman terbaikku
+Kau selalu ada di sisiku
+Hingga rambut kita tak hitam lagi
+
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">31</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Ayahku</h3>
+            <div class="poem-author">Karya Fadhil Abdul Raasyiid</div>
+            <p class="poem-content">
+                Ayah, beribu cinta yang engkau beri
+Beribu kasih sayang yang engkau kasih
+Hanya untuk anakmu ini
+Engkau ajarkan aku tentang kebaikan
+Engkau tuntun aku ke jalan yang benar
+Engkau bimbing aku belajar mengendarai mobil
+Engkau yakinkanku mengenal dunia tanpa pergaulan bebas
+Ayah, pengorbanan tiada terhingga
+Pahlawan tiada kenal lelah
+Jasamu tanpa biaya
+Dari mengantarkan dan menjadikan aku anak yang baik
+
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">32</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Di Ruang Kelas Itu</h3>
+            <div class="poem-author">Karya Gavin Gentari Satrio</div>
+            <p class="poem-content">
+                Putih abu-abu
+Kelak menjadi rindu
+Di bawah terbang
+Putih biru yang berdebu
+Di sapa hangat
+Putih merah yang membisu
+Semua akan menipu
+Saat kau dan aku tak lagi bertemu
+Temanku di ruang kelas itu
+
+
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">33</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Ibu Tersayang</h3>
+            <div class="poem-author">Karya Kaysang Maheswara</div>
+            <p class="poem-content">
+                Terima kasih ibuku, bidadariku, ratuku, surgaku
+Aku tak bisa berkata-kata lagi
+Terima kasih banyak ibu telah mengandungku, melahirkanku
+Dan menyusuiku sampai sebesar ini
+Ibuku cantik seperti bunga yang mekar
+Cantik seperti pelangi yang tiada ujungnya
+Aku tak bisa apa-apa tanpamu ibu
+I love you ibu
+
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+
+        <article class="poem">
+            <div class="poem-number">34</div>
+            <div class="poem-decoration decoration-1"><i class="fas fa-book-open"></i></div>
+            <div class="poem-decoration decoration-2"><i class="fas fa-book-open"></i></div>
+            <h3 class="poem-title">Kucing</h3>
+            <div class="poem-author">Karya Daffa Abiy Ziyahuda</div>
+            <p class="poem-content">
+                Kucing kucing
+Kau hewan peliharaan
+Belumu halus
+Kau sangat imut
+Kau suka makan ikan
+Dan suka mengejar tikus 
+Kau suka berguling-guling 
+Suaramu meong meong
+Saat malam matamu menyala
+Kucing kau hewan peliharaanku yang imut
+
+
+            </p>
+            <div class="poem-meta">
+                <div class="poem-date">Ditulis pada: 2025</div>
+                <div class="poem-location">Surakarta</div>
+            </div>
+        </article>
+    </main>
+    
+    <div class="floating-btn" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <h3>Serpihan Rasa</h3>
+            <p>Kumpulan Antologi Puisi oleh SPEBASKA</p>
+            
+            <p class="copyright">&copy; 2025 SPEBASKA. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animasi daun jatuh
+        function createLeaves() {
+            const container = document.getElementById('leaves-container');
+            const leafCount = 15;
+            
+            for (let i = 0; i < leafCount; i++) {
+                const leaf = document.createElement('div');
+                leaf.classList.add('leaf');
+                
+                // Random properties
+                const size = Math.random() * 20 + 10;
+                const posX = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = Math.random() * 10 + 10;
+                
+                leaf.style.width = `${size}px`;
+                leaf.style.height = `${size}px`;
+                leaf.style.left = `${posX}%`;
+                leaf.style.setProperty('--random-x', Math.random() * 2 - 1);
+                leaf.style.animationDuration = `${duration}s`;
+                leaf.style.animationDelay = `${delay}s`;
+                
+                container.appendChild(leaf);
+            }
+        }
+        
+        // Animasi scroll untuk elemen
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.preface, .poem');
+            
+            elements.forEach((element, index) => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    setTimeout(() => {
+                        element.classList.add('visible');
+                    }, index * 200);
+                }
+            });
+        }
+        
+        // Tombol back to top
+        function toggleBackToTop() {
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        }
+        
+        // Event listeners
+        window.addEventListener('load', createLeaves);
+        window.addEventListener('scroll', () => {
+            animateOnScroll();
+            toggleBackToTop();
+        });
+        
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Inisialisasi animasi saat pertama kali load
+        document.addEventListener('DOMContentLoaded', () => {
+            animateOnScroll();
+        });
+    </script>
+</body>
+</html>
